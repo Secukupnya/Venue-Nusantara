@@ -1,0 +1,24 @@
+/* styles.css - custom styles for Venue Nusantara */
+:root{
+  --accent: #0b74ff;
+  --muted: #6b7280;
+}
+.btn-primary{
+  background: var(--accent);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  display: inline-block;
+}
+.btn-secondary{
+  background: transparent;
+  color: var(--accent);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--accent);
+}
+.hero-bg{
+  background-image: url('assets/hero.jpg');
+  background-size: cover;
+  background-position: center;
+}

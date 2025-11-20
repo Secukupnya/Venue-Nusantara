@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Venue Nusantara</title>
+  <meta name="description" content="Venue Nusantara - platform pemesanan venue, demo lengkap.">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- NAV -->
+  <nav class="bg-white shadow-md fixed w-full z-40">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/logo.svg" alt="VN" class="w-10 h-10">
+        <div class="font-bold text-lg">Venue Nusantara</div>
+      </div>
+      <ul class="hidden md:flex gap-6 font-medium">
+        <li><a href="#home" class="hover:text-blue-600">Home</a></li>
+        <li><a href="#about" class="hover:text-blue-600">About</a></li>
+        <li><a href="#services" class="hover:text-blue-600">Services</a></li>
+        <li><a href="#browse" class="hover:text-blue-600">Browse</a></li>
+        <li><a href="#contact" class="hover:text-blue-600">Contact</a></li>
+      </ul>
+      <div class="md:hidden">☰</div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="pt-20">
+    <div class="hero-bg h-80 relative overflow-hidden">
+      <div class="absolute inset-0 bg-black/40"></div>
+      <div class="absolute inset-0 flex items-center justify-center text-white text-center px-4">
+        <div>
+          <h1 class="text-4xl md:text-5xl font-extrabold">Venue Nusantara</h1>
+          <p class="mt-3 text-lg md:text-xl max-w-2xl mx-auto">Temukan dan pesan venue terbaik di Balikpapan dan seluruh Nusantara — cepat, aman, dan mudah.</p>
+          <div class="mt-6 flex justify-center gap-3">
+            <a class="btn-primary" href="#browse">Cari Venue</a>
+            <a class="btn-secondary" href="#services">Layanan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="max-w-6xl mx-auto p-6 mt-12">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div>
+        <h2 class="text-3xl font-bold mb-4">Tentang Venue Nusantara</h2>
+        <p class="text-gray-700 leading-relaxed">Venue Nusantara adalah platform demo untuk mencari, mengecek kapasitas (mengacu pada nilai m²/orang contoh dari SNI), melihat tampilan 3D sederhana, melakukan booking, dan mencetak invoice. Ideal sebagai basis prototipe sebelum integrasi backend & gateway pembayaran nyata.</p>
+        <ul class="mt-4 space-y-2">
+          <li>• Pencarian & filter venue</li>
+          <li>• Tampilan 3D sederhana (Three.js)</li>
+          <li>• Perhitungan kapasitas contoh berdasarkan m²/orang</li>
+          <li>• Alur booking lengkap & invoice PDF</li>
+        </ul>
+      </div>
+      <div>
+        <img src="assets/balikpapan1.svg" alt="Balikpapan" class="rounded-xl shadow-lg w-full">
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="max-w-6xl mx-auto p-6 mt-8 bg-white rounded-xl shadow">
+    <h3 class="text-2xl font-bold mb-6">Layanan Kami</h3>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="p-4 rounded-lg border">
+        <h4 class="font-semibold">Cari Venue</h4>
+        <p class="mt-2 text-sm text-gray-600">Filter berdasarkan kota, nama, dan kapasitas.</p>
+      </div>
+      <div class="p-4 rounded-lg border">
+        <h4 class="font-semibold">Tampilan 3D</h4>
+        <p class="mt-2 text-sm text-gray-600">Preview 3D sederhana menggunakan Three.js untuk membantu visualisasi.</p>
+      </div>
+      <div class="p-4 rounded-lg border">
+        <h4 class="font-semibold">Booking & Invoice</h4>
+        <p class="mt-2 text-sm text-gray-600">Mulai dari memilih tanggal, mengisi data, simulasi pembayaran, hingga mendapat invoice PDF.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BROWSE / SEARCH -->
+  <section id="browse" class="max-w-6xl mx-auto p-6 mt-10">
+    <div class="flex gap-4 items-center">
+      <input id="searchBox" placeholder="Cari: aula, kafe, ballroom..." class="flex-1 p-3 border rounded" />
+      <select id="citySelect" class="p-3 border rounded w-48">
+        <option value="">Semua Kota</option>
+        <option>Balikpapan</option>
+        <option>Jakarta</option>
+        <option>Bandung</option>
+      </select>
+      <button id="btnSearch" class="btn-primary">Cari</button>
+    </div>
+
+    <div id="venueList" class="grid md:grid-cols-3 gap-6 mt-6"></div>
+
+    <!-- Balikpapan gallery -->
+    <div class="mt-10">
+      <h3 class="text-xl font-bold mb-4">Galeri — Keindahan Kota Balikpapan</h3>
+      <div class="grid md:grid-cols-3 gap-4">
+        <img src="assets/balikpapan1.svg" class="rounded-lg shadow h-48 object-cover" alt="">
+        <img src="assets/balikpapan2.svg" class="rounded-lg shadow h-48 object-cover" alt="">
+        <img src="assets/balikpapan3.svg" class="rounded-lg shadow h-48 object-cover" alt="">
+      </div>
+    </div>
+  </section>
+
+  <!-- MODALS / PAGES (DETAIL, DATE, PAYMENT) inserted dynamically by JS -->
+
+  <!-- CONTACT -->
+  <section id="contact" class="max-w-6xl mx-auto p-6 mt-12 mb-24 bg-white rounded-xl shadow">
+    <h3 class="text-2xl font-bold mb-4">Hubungi Kami</h3>
+    <div class="grid md:grid-cols-2 gap-6">
+      <form id="contactForm" class="space-y-3">
+        <input placeholder="Nama" id="c_name" class="p-3 border rounded w-full" required>
+        <input placeholder="Email" id="c_email" class="p-3 border rounded w-full" required>
+        <textarea placeholder="Pesan" id="c_message" class="p-3 border rounded w-full" rows="5" required></textarea>
+        <button class="btn-primary" type="submit">Kirim Pesan</button>
+      </form>
+      <div>
+        <h4 class="font-semibold">Kontak & Lokasi</h4>
+        <p class="mt-2">Email: support@venuenusantara.example</p>
+        <p>Lokasi: Balikpapan, Kalimantan Timur</p>
+        <div class="mt-4">
+          <iframe class="w-full h-48 rounded" src="https://www.openstreetmap.org/export/embed.html?bbox=116.806%2C-1.290%2C116.940%2C-1.224&amp;layer=mapnik" style="border:0"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white py-6">
+    <div class="max-w-6xl mx-auto text-center">
+      © 2025 Venue Nusantara — Demo. Template untuk demonstrasi dan pengembangan lebih lanjut.
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
